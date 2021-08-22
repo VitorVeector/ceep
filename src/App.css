@@ -1,0 +1,30 @@
+.App{
+    display: flex;
+    justify-content: space-between;
+}
+
+.note_form{
+    min-width: 30vw;
+}
+
+.note_list{
+    display: flex;
+    align-self: flex-start;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+:root{
+    --color1: #2e2e35;   
+    --color2: #616178; 
+    --color3: #23a361;
+    --color4: #a4e097;  
+    --color5: #e8e8c9;
+    font-family: "Montserrat", sans-serif;
+}
+
+@media(max-width: 1020px){
+    .note_list{
+        margin-top: 40vh;
+    }
+}
