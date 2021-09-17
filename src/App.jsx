@@ -8,24 +8,22 @@ class App extends Component {
 
   constructor(){
     super();
-    this.notes = [];
-    this.state = {}
+    this.state = {
+      notes: []
+    }
   }
 
   methods = {
     createNote(title, content){
-      let newNote = {
-        title: title,
-        content: content
+      let newNote = {title, content}
+      let newArrNotes = [...this.state.notes, newNote]
+      let newState = {
+        notes: newArrNotes
       }
-      this.notes.push(newNote)
-      console.log(this.notes.length)
-      this.setState({
-        notas: this.notes
-      })
+      this.setState(newState)
     }
   }
-  
+
   render() {
     return (
       <div className="App">
@@ -33,12 +31,12 @@ class App extends Component {
           <NotesList criarNota={this.methods.createNote.bind(this)}/>
         </div>
         <ul className="note_list">
-          {this.notes.map((e, index) => {
+          {this.state.notes.map((e, index) => {
             return (
               <li key={index}>
                 <CardNote 
-                  title={this.notes[index].title} 
-                  content={this.notes[index].content}/>
+                  title={e.title} 
+                  content={e.content}/>
               </li>
             );
           })}
