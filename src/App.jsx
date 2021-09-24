@@ -17,10 +17,14 @@ class App extends Component {
     createNote(title, content){
       let newNote = {title, content}
       let newArrNotes = [...this.state.notes, newNote]
-      let newState = {
-        notes: newArrNotes
-      }
-      this.setState(newState)
+      this.setState({notes: newArrNotes})
+    },
+
+    deleteNote(indice){
+      let arrNote = this.state.notes
+      arrNote.splice(indice,1)
+      this.setState({notes: arrNote})
+      console.log("Deletar", indice)
     }
   }
 
@@ -34,9 +38,12 @@ class App extends Component {
           {this.state.notes.map((e, index) => {
             return (
               <li key={index}>
-                <CardNote 
+                <CardNote
+                  indice={index}
                   title={e.title} 
-                  content={e.content}/>
+                  content={e.content}
+                  delete={this.methods.deleteNote.bind(this)}
+                  />
               </li>
             );
           })}
