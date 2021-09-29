@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import NotesList from "./components/formCadastro";
 import CardNote from "./components/cards";
+import CategoryList from "./components/category"
 
 import './App.css'
 class App extends Component {
@@ -9,7 +10,8 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      notes: []
+      notes: [],
+      category: [],
     }
   }
 
@@ -34,7 +36,10 @@ class App extends Component {
         <div className="note_form">
           <NotesList criarNota={this.methods.createNote.bind(this)}/>
         </div>
-        <ul className="note_list">
+          <CategoryList id="CategoryList"/>
+        <main>
+          
+          <ul className="note_list">
           {this.state.notes.map((e, index) => {
             return (
               <li key={index}>
@@ -48,6 +53,7 @@ class App extends Component {
             );
           })}
         </ul>
+        </main>
       </div>
     );
   }

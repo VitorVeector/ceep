@@ -14,9 +14,9 @@
 }
 
 .cardNota-header{
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 .cardNota-title{
@@ -26,6 +26,20 @@
 
 .cardNota-text{
     font-size: 1.2rem;
+}
+
+.deleteBtn{
+    border: none;
+    background-color: var(--color5);
+    border-radius: 0.5rem;
+    opacity: 0.7;
+    transition: .3s;
+}
+
+.deleteBtn:hover{
+    cursor: pointer;
+    background-color: #c28e8e;
+    opacity: 1;
 }
 
 
